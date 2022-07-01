@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Orbitron:wght@500&display=swap');
+@import 'vars';
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    color: aliceblue;
+    background-color: #0C0A47;
+}
