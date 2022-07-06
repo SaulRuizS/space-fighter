@@ -11,8 +11,14 @@ const MovingBG = () => {
                 <div className='star small'></div>
                 <div className='star small'></div>
                 <div className='star small'></div>
+                <div className='star small'></div>
+                <div className='star small'></div>
+                <div className='star small'></div>
+                <div className='star small'></div>
+                <div className='star small'></div>
             </div>
             <div className='moving-bg__medium-stars'>
+                <div className='star medium'></div>
                 <div className='star medium'></div>
                 <div className='star medium'></div>
                 <div className='star medium'></div>

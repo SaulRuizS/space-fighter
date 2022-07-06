@@ -6,8 +6,8 @@ import './styles/global.scss'
 const App = () => {
     return (
         <div>
+            <MainMenu />
             <MovingBG />
-            {/* <MainMenu /> */}
         </div>
     );
 };
