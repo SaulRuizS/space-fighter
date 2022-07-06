@@ -1,0 +1,14 @@
+@import 'vars';
+
+.player-info {
+    padding-top: 30px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 3rem;
+    font-family: 'Orbitron';
+
+    span {
+        font-size: 2rem;
+    }
+}

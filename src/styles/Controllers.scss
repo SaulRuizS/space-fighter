@@ -1,0 +1,19 @@
+@import 'vars';
+
+.controllers {
+    position: absolute;
+    bottom: 4vh;
+    height: 80px;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    // background-color: aqua;
+
+    &__button {
+        height: 100%;
+        width: 80px;
+        border-radius: 16px;
+        border-width: 0px;
+        margin-inline: 8px;
+    }
+}
