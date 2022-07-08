@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/MovingBG.scss';
+import '@styles/MovingBG.scss';
 
 const MovingBG = () => {
 

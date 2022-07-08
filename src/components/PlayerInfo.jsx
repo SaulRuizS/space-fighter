@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/PlayerInfo.scss';
+import '@styles/PlayerInfo.scss';
 
 const PlayerInfo = () => {
     return (

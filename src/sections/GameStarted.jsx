@@ -1,8 +1,8 @@
 import React from 'react';
-import Controller from '../components/Controller';
-import Player from '../components/Player';
-import PlayerInfo from '../components/PlayerInfo';
-import '../styles/GameStarted.scss';
+import Controller from '@components/Controller';
+import Player from '@components/Player';
+import PlayerInfo from '@components/PlayerInfo';
+import '@styles/GameStarted.scss';
 
 const GameStarted = () => {
     return (
