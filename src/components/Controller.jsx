@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import GameContext from '@context/GameContext';
 import '@styles/Controllers.scss';
 
@@ -11,18 +11,24 @@ const Controller = () => {
         setShootState,
     } = useContext(GameContext)
 
-    const speed = 10;
+    // const [  ]
+
+    const speed = 5;
 
     const moveToLeft = () => {
-        let leftPos = playerXPos - speed;
-        setPlayerXPos(leftPos);
-        console.log(playerXPos);
+        let leftPos = playerXPos;
+        if(leftPos > 0) {
+            leftPos -= speed;
+            setPlayerXPos(leftPos);
+        }
     }
 
     const moveToRight = () => {
-        let rightPos = playerXPos + speed;
-        setPlayerXPos(rightPos);
-        console.log(playerXPos);
+        let rightPos = playerXPos;
+        if(rightPos < 90) {
+            rightPos += speed;
+            setPlayerXPos(rightPos);
+        }
     }
 
     const shoot = () => {
@@ -40,7 +46,9 @@ const Controller = () => {
         <div className='controllers'>
             <button
                 className='controllers__button left'
-                onClick={moveToLeft}
+                // onClick={moveToLeft}
+                onMouseDown={moveToLeft}
+                // onMouseUp={}
             > /- </button>
             <button
                 className='controllers__button shoot'
@@ -48,7 +56,8 @@ const Controller = () => {
             > * </button>
             <button
                 className='controllers__button right'
-                onClick={moveToRight}
+                // onClick={moveToRight}
+                onMouseDown={moveToRight}
             > -\ </button>
         </div>
     );
