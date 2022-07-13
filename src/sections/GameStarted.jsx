@@ -11,7 +11,7 @@ const GameStarted = () => {
 
     return (
         <div ref={gameStarted} className='game-started'>
-            {console.log(gameStarted.current)}
+            {/* {console.log(gameStarted.current)} */}
             <PlayerInfo />
             <Player />
             <Controller />

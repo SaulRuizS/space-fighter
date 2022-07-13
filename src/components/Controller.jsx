@@ -7,27 +7,46 @@ const Controller = () => {
     const {
         playerXPos,
         setPlayerXPos,
+
+        playerMovingLeft,
+        setPlayerMovingLeft,
+
+        playerMovingRight,
+        setPlayerMovingRight,
+
         shootState,
         setShootState,
     } = useContext(GameContext)
-
-    // const [  ]
 
     const speed = 5;
 
     const moveToLeft = () => {
         let leftPos = playerXPos;
+
         if(leftPos > 0) {
             leftPos -= speed;
             setPlayerXPos(leftPos);
         }
     }
 
+    const stopMoveLeft = () => {
+        if(playerMovingLeft) {
+            setPlayerMovingLeft(false);
+        }
+    }
+
     const moveToRight = () => {
         let rightPos = playerXPos;
+
         if(rightPos < 90) {
             rightPos += speed;
             setPlayerXPos(rightPos);
+        }
+    }
+
+    const stopMoveRight = () => {
+        if(playerMovingRight) {
+            setPlayerMovingRight(false);
         }
     }
 
@@ -46,9 +65,15 @@ const Controller = () => {
         <div className='controllers'>
             <button
                 className='controllers__button left'
-                // onClick={moveToLeft}
-                onMouseDown={moveToLeft}
-                // onMouseUp={}
+                onMouseDown={(e) => {
+                    if(e) {
+                        moveToLeft();
+                    }
+                    console.log(e);
+                }}
+                onMouseUp={(e) => {
+                    console.log(e);
+                }}
             > /- </button>
             <button
                 className='controllers__button shoot'
@@ -56,8 +81,15 @@ const Controller = () => {
             > * </button>
             <button
                 className='controllers__button right'
-                // onClick={moveToRight}
-                onMouseDown={moveToRight}
+                onMouseDown={(e) => {
+                    if(e) {
+                        moveToRight();
+                    }
+                    console.log(e);
+                }}
+                onMouseUp={(e) => {
+                    console.log(e);
+                }}
             > -\ </button>
         </div>
     );
