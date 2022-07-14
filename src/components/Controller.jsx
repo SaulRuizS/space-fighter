@@ -18,18 +18,15 @@ const Controller = () => {
 
     let rightPos = playerXPos;
 
-    let leftInterval = null;
-
-    let rightInterval = null;
-
     const moveToLeft = () => {
         if(leftPos > 5) {
             leftPos -= speed;
             setPlayerXPos(leftPos);
         }
+
     }
 
-    const moveToRight = () => {
+    const moveToRight = (moving) => {
         if(rightPos < 85) {
             rightPos += speed;
             setPlayerXPos(rightPos);
@@ -38,26 +35,20 @@ const Controller = () => {
 
     const shoot = () => {
         setShootState(true);
-        console.log(shootState);
         setTimeout(
             () => {
                 setShootState(false);
                 console.log(shootState);
             }, 500
-        )
+        );
     }
 
     return (
         <div className='controllers'>
             <button
                 className='controllers__button left'
-                onMouseUp={(e) => {
-                    clearInterval(leftInterval);
-                    leftInterval = null;
-                }}
                 onMouseDown={(e) => {
                     moveToLeft();
-                    leftInterval = setInterval(moveToLeft, 50);
                 }}
             > /- </button>
             <button
@@ -66,13 +57,8 @@ const Controller = () => {
             > * </button>
             <button
                 className='controllers__button right'
-                onMouseUp={(e) => {
-                    clearInterval(rightInterval);
-                    rightInterval = null;
-                }}
                 onMouseDown={(e) => {
                     moveToRight();
-                    rightInterval = setInterval(moveToRight, 50);
                 }}
             > -\ </button>
         </div>
