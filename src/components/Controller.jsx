@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import GameContext from '@context/GameContext';
 import '@styles/Controllers.scss';
 
@@ -8,45 +8,31 @@ const Controller = () => {
         playerXPos,
         setPlayerXPos,
 
-        playerMovingLeft,
-        setPlayerMovingLeft,
-
-        playerMovingRight,
-        setPlayerMovingRight,
-
         shootState,
         setShootState,
     } = useContext(GameContext)
 
-    const speed = 5;
+    const speed = 10;
+
+    let leftPos = playerXPos;
+
+    let rightPos = playerXPos;
+
+    let leftInterval = null;
+
+    let rightInterval = null;
 
     const moveToLeft = () => {
-        let leftPos = playerXPos;
-
-        if(leftPos > 0) {
+        if(leftPos > 5) {
             leftPos -= speed;
             setPlayerXPos(leftPos);
         }
     }
 
-    const stopMoveLeft = () => {
-        if(playerMovingLeft) {
-            setPlayerMovingLeft(false);
-        }
-    }
-
     const moveToRight = () => {
-        let rightPos = playerXPos;
-
-        if(rightPos < 90) {
+        if(rightPos < 85) {
             rightPos += speed;
             setPlayerXPos(rightPos);
-        }
-    }
-
-    const stopMoveRight = () => {
-        if(playerMovingRight) {
-            setPlayerMovingRight(false);
         }
     }
 
@@ -65,14 +51,13 @@ const Controller = () => {
         <div className='controllers'>
             <button
                 className='controllers__button left'
-                onMouseDown={(e) => {
-                    if(e) {
-                        moveToLeft();
-                    }
-                    console.log(e);
-                }}
                 onMouseUp={(e) => {
-                    console.log(e);
+                    clearInterval(leftInterval);
+                    leftInterval = null;
+                }}
+                onMouseDown={(e) => {
+                    moveToLeft();
+                    leftInterval = setInterval(moveToLeft, 50);
                 }}
             > /- </button>
             <button
@@ -81,14 +66,13 @@ const Controller = () => {
             > * </button>
             <button
                 className='controllers__button right'
-                onMouseDown={(e) => {
-                    if(e) {
-                        moveToRight();
-                    }
-                    console.log(e);
-                }}
                 onMouseUp={(e) => {
-                    console.log(e);
+                    clearInterval(rightInterval);
+                    rightInterval = null;
+                }}
+                onMouseDown={(e) => {
+                    moveToRight();
+                    rightInterval = setInterval(moveToRight, 50);
                 }}
             > -\ </button>
         </div>
