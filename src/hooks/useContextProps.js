@@ -6,12 +6,17 @@ const useContextProps = () => {
 
     const [ shootState, setShootState ] = useState(false);
 
+    const [ asteroidXPos, setAsteroidXPos ] = useState(90);
+
     return {
         playerXPos,
         setPlayerXPos,
 
         shootState,
         setShootState,
+
+        asteroidXPos,
+        setAsteroidXPos,
     }
 }
 export default useContextProps;

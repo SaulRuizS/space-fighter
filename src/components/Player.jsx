@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import '@styles/Player.scss';
 import GameContext from '@context/GameContext';
+import '@styles/Player.scss';
 
 const Player = () => {
 
