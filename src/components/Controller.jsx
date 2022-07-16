@@ -12,14 +12,14 @@ const Controller = () => {
         setShootState,
     } = useContext(GameContext)
 
-    const speed = 10;
+    const speed = 20;
 
     let leftPos = playerXPos;
 
     let rightPos = playerXPos;
 
     const moveToLeft = () => {
-        if(leftPos > 5) {
+        if(leftPos > (0 + speed - 5)) {
             leftPos -= speed;
             setPlayerXPos(leftPos);
         }
@@ -27,7 +27,7 @@ const Controller = () => {
     }
 
     const moveToRight = (moving) => {
-        if(rightPos < 85) {
+        if(rightPos < (100 - speed - 5)) {
             rightPos += speed;
             setPlayerXPos(rightPos);
         }

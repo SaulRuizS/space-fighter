@@ -7,23 +7,11 @@ import '@styles/GameStarted.scss';
 
 const GameStarted = () => {
 
-    let asteroidState = true;
-
-    const addAsteroid = () => {
-        setInterval(() => {
-            asteroidState = !asteroidState;
-            // console.log(asteroidState);
-        }, 2000)
-    }
-
-    useEffect(addAsteroid, []);
-
     return (
         <div className='game-started'>
             <PlayerInfo />
+            <Asteroid />
             <Player />
-            {asteroidState && <Asteroid />}
-            {/* <Asteroid /> */}
             <Controller />
         </div>
     );

@@ -15,7 +15,7 @@ const Player = () => {
             className='player'
             style={
                 {
-                    left: `${xPos}%`
+                    left: `${xPos}vw`
                 }
             }
         >
