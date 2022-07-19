@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Controller from '@components/Controller';
 import Player from '@components/Player';
 import PlayerInfo from '@components/PlayerInfo';
@@ -7,10 +7,26 @@ import '@styles/GameStarted.scss';
 
 const GameStarted = () => {
 
+    let count = 0;
+
+    const [ asteroidsCount, setAsteroidsCount ] = useState(0);
+
+    useEffect(() => {
+        const intervalID = setInterval(
+            () => {
+                count++;
+                setAsteroidsCount(count);
+                console.log(asteroidsCount);
+            },
+            1500
+        )
+        return () => clearInterval(intervalID);
+    }, [])
+
     return (
         <div className='game-started'>
             <PlayerInfo />
-            <Asteroid />
+            <Asteroid asteroidsCount={asteroidsCount}/>
             <Player />
             <Controller />
         </div>

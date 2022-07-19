@@ -1,9 +1,8 @@
-import React, { PureComponent, useContext } from 'react';
-import GameContext from '@context/GameContext';
+import React, { memo, useContext } from 'react';
+// import GameContext from '@context/GameContext';
 import '@styles/Asteroid.scss';
 
-const Asteroid = () => {
-// class Asteroid extends React.Component {
+const Asteroid = ({ asteroidsCount }) => {
 
     // const {
     //     asteroidXPos,
@@ -18,8 +17,6 @@ const Asteroid = () => {
 
     const xPos = randomAsteroidXPos();
 
-    // shouldComponent
-
     return (
         <div
             className='asteroid'
@@ -33,4 +30,4 @@ const Asteroid = () => {
     );
 };
 
-export default Asteroid;
+export default memo(Asteroid);
